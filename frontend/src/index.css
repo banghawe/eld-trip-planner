@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS Variables - Light Professional Theme */
+:root {
+  --color-bg: #f8fafc;
+  --color-bg-card: #ffffff;
+  --color-bg-elevated: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+  --color-text: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-light: #eff6ff;
+  --color-success: #16a34a;
+  --color-success-light: #f0fdf4;
+  --color-warning: #d97706;
+  --color-warning-light: #fffbeb;
+  --color-error: #dc2626;
+  --color-error-light: #fef2f2;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-elevated);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Focus Styles */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Link Styles */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* Custom Utility Classes */
+@layer components {
+  .card {
+    @apply bg-white border border-slate-200 rounded-xl shadow-sm;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-300 hover:border-primary-300 hover:shadow-lg hover:shadow-primary-500/5;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 bg-primary-600 text-white font-semibold rounded-lg shadow-sm transition-all duration-200 hover:bg-primary-700 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-primary-600;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 bg-white border border-slate-300 text-slate-700 font-medium rounded-lg shadow-sm transition-all duration-200 hover:bg-slate-50 hover:border-slate-400 active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-4 py-2 text-slate-600 font-medium rounded-lg transition-all duration-200 hover:bg-slate-100 hover:text-slate-900;
+  }
+
+  .input {
+    @apply w-full px-4 py-3 bg-white border border-slate-300 text-slate-900 placeholder-slate-400 rounded-lg transition-all duration-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 focus:outline-none;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-slate-700 mb-1.5;
+  }
+
+  .skeleton {
+    @apply bg-slate-200 rounded-lg animate-pulse;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-primary {
+    @apply badge bg-primary-100 text-primary-700;
+  }
+
+  .badge-success {
+    @apply badge bg-green-100 text-green-700;
+  }
+
+  .badge-warning {
+    @apply badge bg-amber-100 text-amber-700;
+  }
+}
+
+/* Leaflet Map Overrides - Light Theme */
+.leaflet-container {
+  background: #e2e8f0 !important;
+  border-radius: 0.75rem;
+}
+
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06) !important;
+}
+
+.leaflet-control-zoom a {
+  background: white !important;
+  color: #334155 !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: #f8fafc !important;
+}
+
+/* Map Popup - Critical fix for visibility */
+.leaflet-popup-content-wrapper {
+  background: white !important;
+  color: #0f172a !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+  padding: 0 !important;
+}
+
+.leaflet-popup-content {
+  margin: 12px 16px !important;
+  color: #0f172a !important;
+}
+
+.leaflet-popup-content p {
+  color: #0f172a !important;
+  margin: 4px 0 !important;
+}
+
+.leaflet-popup-tip {
+  background: white !important;
+}
+
+.leaflet-popup-close-button {
+  color: #64748b !important;
+}
+
+.leaflet-popup-close-button:hover {
+  color: #0f172a !important;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .card {
+    @apply rounded-lg;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    @apply px-4 py-2 text-sm;
+  }
+
+  .input {
+    @apply py-2.5 text-base;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white !important;
+  }
+
+  header,
+  .no-print {
+    display: none !important;
+  }
+
+  .card {
+    box-shadow: none !important;
+    border: 1px solid #e2e8f0 !important;
+  }
+}
