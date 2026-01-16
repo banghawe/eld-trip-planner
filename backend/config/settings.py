@@ -71,7 +71,9 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.config()
+# Override with DATABASE_URL if provided (for production PostgreSQL)
+if os.getenv('DATABASE_URL'):
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
