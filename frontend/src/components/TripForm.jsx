@@ -281,7 +281,7 @@ function TripForm() {
                             <svg className="w-4 h-4 text-slate-400 cursor-help" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
-                            <div className="absolute left-0 bottom-full mb-2 w-64 p-3 bg-slate-800 text-white text-xs rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-30 shadow-lg">
+                            <div className="absolute right-0 sm:left-0 bottom-full mb-2 w-56 sm:w-64 p-3 bg-slate-800 text-white text-xs rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-30 shadow-lg">
                                 <strong>70-Hour / 8-Day Rule:</strong>
                                 <p className="mt-1">You cannot drive after being on duty 70 hours in any 8 consecutive days. A 34-hour restart resets this limit.</p>
                             </div>
